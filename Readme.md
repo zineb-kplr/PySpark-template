@@ -98,7 +98,7 @@ rdd3.toDebugString()
 11-Remplacez putyourfirstnamehere par le dossier personnel que vous avez créé lors du chargement des données sur HDFS :
 
 ```python
-df = spark.read.option("header", True).format("csv").load("hdfs:///user/root/putyourfirstnamehere/data/zipcodes.csv")
+df = spark.read.option("header", True).format("csv").load("/bitnami/spark/zipcodes.csv")
 df.show()
 ```
 12-Comptons maintenant les entrées dans notre fichier :
@@ -118,6 +118,5 @@ df.filter(df.city == "New York").show(df.count(), False)
 df.filter(df.state == "MA").count()
 df.groupBy("state").count().show()
 df.groupBy("state","city").count().show(100)
-df.groupBy("state","city").count().orderBy("state", "city").where().show(100)
 df.groupBy("state","city").count().alias("zipcount").orderBy("state", "city").where("count > 50").orderBy("count").show(10)
 ```
