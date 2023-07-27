@@ -1,27 +1,31 @@
-1-Run the docker-compose to setup spark :
+
+
+1- Exécutez le docker-compose pour configurer Spark :
 ```
 docker-compose up -d
 ```
 
-2-Access to spark worker container : 
+2- Accédez au conteneur du worker Spark :
 ```
 docker exec -it spark-worker /bin/bash
 ```
 
-3-Install py4j module :
+3- Installez le module py4j :
 ```
 python3 -m pip install py4j
 ```
-4-launch the Python interpreter:
+
+4- Lancez l'interpréteur Python :
 ```
 python3
 ```
-5-Import the necessary modules and create a SparkContext:
+
+5- Importez les modules nécessaires et créez un SparkContext :
 
 ```
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
-# Create a SparkContext
+# Créez un SparkContext
 sc = SparkContext("local", "PySpark Playground")
 spark = SparkSession(sc)
 ```
