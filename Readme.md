@@ -61,7 +61,7 @@ rdd.count()
 
 ```python
 dataList2 = [("CHROMIUM", 25), ("CESIUM", 55), ("BARIUM", 56)]
-rdd2 = spark.sparkContext.parallelize(dataList2)
+rdd2 = sc.parallelize(dataList2)
 rdd3 = rdd.union(rdd2)
 rdd3.collect()
 ```
